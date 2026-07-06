@@ -99,6 +99,10 @@ body{
     border-radius:18px;
     text-align:center;
 }
+.card-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
 
 .card h3{
     font-size:15px;
