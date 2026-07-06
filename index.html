@@ -14,50 +14,41 @@
 
 <div class="container">
 
-    <!-- Search Bar -->
+    <!-- Search -->
     <div class="search-box">
-        <input
-            type="text"
-            id="cityInput"
-            placeholder="Search city..."
-        >
-
-        <button id="searchBtn">
-            🔍
-        </button>
+        <input type="text" id="cityInput" placeholder="Search city...">
+        <button id="searchBtn">🔍</button>
     </div>
 
-    <!-- Weather -->
+    <!-- Current Location -->
+    <button id="locationBtn">📍 Use My Location</button>
+
+    <!-- Weather Card -->
     <div class="weather-box">
+
+        <p id="dateTime">Monday, 6 July</p>
 
         <h2 id="city">Kolkata</h2>
 
-        <div class="icon">
-            ☀️
-        </div>
+        <div class="icon">☀️</div>
 
         <h1 id="temp">32°C</h1>
+
+        <p id="feels">Feels Like 35°C</p>
 
         <p id="condition">Sunny</p>
 
         <div class="details">
 
-    <div class="card">
-        <div class="card-icon">💧</div>
-        <h3>Humidity</h3>
-        <p id="humidity">65%</p>
-    </div>
-
-    <div class="card">
-        <div class="card-icon">💨</div>
-        <h3>Wind Speed</h3>
-        <p id="wind">12 km/h</p>
-    </div>
-
-        </div>
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Humidity</h3>
+                <p id="humidity">65%</p>
+            </div>
 
             <div class="card">
-                <h3>💨 Wind Speed</h3>
+                <div class="card-icon">💨</div>
+                <h3>Wind Speed</h3>
                 <p id="wind">12 km/h</p>
             </div>
 
@@ -70,4 +61,4 @@
 <script src="script.js"></script>
 
 </body>
-    </html>
+</html>
