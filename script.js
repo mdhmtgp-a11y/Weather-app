@@ -69,21 +69,23 @@ async function getWeather(cityName) {
     }
 }
 
-searchBtn.addEventListener("click", () => {
+searchBtn.onclick = () => {
     const cityName = cityInput.value.trim();
     if (cityName) {
         getWeather(cityName);
+        getForecast(cityName);
     }
-});
+};
 
-cityInput.addEventListener("keyup", (e) => {
+cityInput.onkeydown = (e) => {
     if (e.key === "Enter") {
         const cityName = cityInput.value.trim();
         if (cityName) {
             getWeather(cityName);
+            getForecast(cityName);
         }
     }
-});
+};
 
 locationBtn.addEventListener("click", () => {
 
