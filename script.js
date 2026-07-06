@@ -1,142 +1,57 @@
-const apiKey = "1d0b51414e0624715947a5e47cb467a1";
+const apiKey = 2eb2ac0ed34ebf88016e545561ba61c8
 
-const city = document.getElementById("city");
-const temp = document.getElementById("temp");
-const condition = document.getElementById("condition");
-const humidity = document.getElementById("humidity");
-const wind = document.getElementById("wind");
-const feels = document.getElementById("feels");
-const dateTime = document.getElementById("dateTime");
-const icon = document.querySelector(".icon");
+const searchInput = document.querySelector(".search-box input");
+const searchBtn = document.querySelector(".search-box button");
 
-const input = document.getElementById("cityInput");
-const searchBtn = document.getElementById("searchBtn");
-const locationBtn = document.getElementById("locationBtn");
+const cityName = document.querySelector(".weather-card h2");
+const temp = document.querySelector(".temp");
+const condition = document.querySelector(".condition");
+const icon = document.querySelector(".weather-icon");
 
-// Search Button
-searchBtn.addEventListener("click", () => {
-    const cityName = input.value.trim();
+const humidityBox = document.querySelectorAll(".detail-box")[0];
+const windBox = document.querySelectorAll(".detail-box")[1];
 
-    if(cityName === ""){
-        alert("Please enter a city name");
-        return;
+async function getWeather(city) {
+  if (!city) return;
+
+  try {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.cod !== 200) {
+      alert(data.message || "City not found");
+      return;
     }
 
-    getWeather(cityName);
-});
-
-// Enter Key Support
-input.addEventListener("keypress", function(e){
-    if(e.key === "Enter"){
-        searchBtn.click();
-    }
-});
-
-// Current Location
-locationBtn.addEventListener("click", () => {
-
-    if(navigator.geolocation){
-
-        navigator.geolocation.getCurrentPosition((position)=>{
-
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-
-            getWeatherByLocation(lat,lon);
-
-        });
-
-    }else{
-        alert("Location not supported");
-    }
-
-});
-
-// Weather By City
-async function getWeather(cityName){
-
-    const url =
-`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    if(data.cod != 200){
-        alert("City not found!");
-        return;
-    }
-
-    updateWeather(data);
-
-}
-
-// Weather By Location
-async function getWeatherByLocation(lat,lon){
-
-    const url =
-`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    updateWeather(data);
-
-}
-
-// Update UI
-function updateWeather(data){
-
-    city.textContent = data.name;
-
+    cityName.textContent = data.name;
     temp.textContent = Math.round(data.main.temp) + "°C";
+    condition.textContent = data.weather[0].description;
 
-    feels.textContent =
-    "Feels Like " + Math.round(data.main.feels_like) + "°C";
+    humidityBox.textContent = "Humidity: " + data.main.humidity + "%";
+    windBox.textContent = "Wind: " + data.wind.speed + " m/s";
 
-    condition.textContent = data.weather[0].main;
+    const iconCode = data.weather[0].icon;
+    icon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-    humidity.textContent = data.main.humidity + "%";
-
-    wind.textContent = Math.round(data.wind.speed) + " km/h";
-
-    const weather = data.weather[0].main;
-
-    if(weather==="Clear"){
-        icon.textContent="☀️";
-    }
-    else if(weather==="Clouds"){
-        icon.textContent="☁️";
-    }
-    else if(weather==="Rain"){
-        icon.textContent="🌧️";
-    }
-    else if(weather==="Thunderstorm"){
-        icon.textContent="⛈️";
-    }
-    else if(weather==="Snow"){
-        icon.textContent="❄️";
-    }
-    else{
-        icon.textContent="🌤️";
-    }
-
+  } catch (err) {
+    console.log(err);
+    alert("Network error or API issue");
+  }
 }
 
-// Date
-function updateDate(){
+// button click
+searchBtn.addEventListener("click", () => {
+  getWeather(searchInput.value.trim());
+});
 
-    const now = new Date();
+// enter key support
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    getWeather(searchInput.value.trim());
+  }
+});
 
-    const options={
-        weekday:"long",
-        day:"numeric",
-        month:"long",
-        year:"numeric"
-    };
-
-    dateTime.textContent =
-    now.toLocaleDateString("en-IN",options);
-
-}
-
-updateDate();
+// default city
+getWeather("Delhi");
