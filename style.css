@@ -10,11 +10,14 @@ body{
     justify-content:center;
     align-items:center;
     min-height:100vh;
+    padding:15px;
     background:linear-gradient(135deg,#4facfe,#00f2fe);
 }
 
 .container{
-    width:350px;
+    width:92%;
+    max-width:360px;
+    margin:20px;
     background:rgba(255,255,255,0.15);
     backdrop-filter:blur(15px);
     border-radius:20px;
