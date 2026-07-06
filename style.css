@@ -4,18 +4,34 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#020617,#0f172a,#1e293b,#0ea5e9);
+    overflow-x:hidden;
+    color:#fff;
+
+    background:linear-gradient(-45deg,#020617,#0f172a,#1e3a8a,#38bdf8);
     background-size:400% 400%;
     background-attachment:fixed;
-    animation:bgAnimation 15s ease infinite;
-    color:#fff;
-    overflow-x:hidden;
+    animation:bgAnimation 12s ease infinite;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+    font-size:2rem;
+    font-weight:700;
+    color:#7dd3fc;
+    text-shadow:0 0 20px rgba(125,211,252,.6);
 }
 
 @keyframes bgAnimation{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
 }
 
 .container{
