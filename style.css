@@ -14,8 +14,9 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#020617,#0f172a,#1e293b,#0ea5e9);
-    color:#fff;
+    background:#0f172a;
+    background-image:linear-gradient(...);
+    ...
 }
 
 @keyframes bgAnimation{
