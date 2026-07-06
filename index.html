@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyCast</title>
+    <title>SkyCast Weather</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,15 +15,24 @@
 <div class="container">
 
     <div class="search-box">
-        <input type="text" placeholder="Enter city name">
-        <button>🔍</button>
+
+        <input
+            type="text"
+            id="cityInput"
+            placeholder="🔍 Search city..."
+        >
+
+        <button id="searchBtn">🔍</button>
+
     </div>
 
     <div class="weather-box">
 
         <h2 id="city">Kolkata</h2>
 
-        <div class="icon">☀️</div>
+        <div class="icon">
+            ☀️
+        </div>
 
         <h1 id="temp">32°C</h1>
 
@@ -33,13 +41,19 @@
         <div class="details">
 
             <div class="card">
+
                 <h3>💧 Humidity</h3>
+
                 <p id="humidity">65%</p>
+
             </div>
 
             <div class="card">
+
                 <h3>💨 Wind</h3>
+
                 <p id="wind">12 km/h</p>
+
             </div>
 
         </div>
@@ -51,4 +65,4 @@
 <script src="script.js"></script>
 
 </body>
-  </html>
+        </html>
