@@ -1,116 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyCast</title>
+    <title>SkyCast Weather</title>
 
     <link rel="stylesheet" href="style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+
+<div class="background"></div>
 
 <div class="container">
 
-    <!-- Search -->
+    <h1 class="logo">☁ SkyCast</h1>
 
     <div class="search-box">
-
-        <input
-        type="text"
-        id="cityInput"
-        placeholder="Search city...">
-
-        <button id="searchBtn">🔍</button>
-
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button id="searchBtn">Search</button>
+        <button id="locationBtn">📍</button>
     </div>
 
-    <!-- Location -->
+    <div class="weather-card">
 
-    <button id="locationBtn">
-        📍 Use My Location
-    </button>
-
-    <!-- Weather -->
-
-    <div class="weather-box">
+        <h2 id="city">Delhi</h2>
 
         <p id="dateTime"></p>
 
-        <h2 id="city">Kolkata</h2>
+        <img id="weatherIcon"
+        src="https://openweathermap.org/img/wn/01d@2x.png">
 
-        <div class="icon">☀️</div>
+        <h1 id="temp">--°C</h1>
 
-        <h1 id="temp">32°C</h1>
+        <p id="condition">Loading...</p>
 
-        <p id="feels">Feels Like 35°C</p>
-
-        <p id="condition">Sunny</p>
+        <p id="feelsLike">Feels Like --°C</p>
 
     </div>
-
-    <!-- Main Cards -->
 
     <div class="details">
 
         <div class="card">
-            <div class="card-icon">💧</div>
-            <h3>Humidity</h3>
-            <p id="humidity">65%</p>
+            <h3>💧 Humidity</h3>
+            <p id="humidity">--%</p>
         </div>
 
         <div class="card">
-            <div class="card-icon">💨</div>
-            <h3>Wind Speed</h3>
-            <p id="wind">12 km/h</p>
+            <h3>💨 Wind</h3>
+            <p id="wind">-- km/h</p>
         </div>
 
-    </div>
-
-    <!-- Extra Details -->
-
-    <div class="extra-details">
-
-        <div class="extra-card">
-            <span>🌅</span>
-            <h4>Sunrise</h4>
-            <p id="sunrise">--:--</p>
-        </div>
-
-        <div class="extra-card">
-            <span>🌇</span>
-            <h4>Sunset</h4>
-            <p id="sunset">--:--</p>
-        </div>
-
-        <div class="extra-card">
-            <span>👁️</span>
-            <h4>Visibility</h4>
-            <p id="visibility">-- km</p>
-        </div>
-
-        <div class="extra-card">
-            <span>🌡️</span>
-            <h4>Pressure</h4>
+        <div class="card">
+            <h3>🌡 Pressure</h3>
             <p id="pressure">-- hPa</p>
         </div>
 
-    </div>
+        <div class="card">
+            <h3>👁 Visibility</h3>
+            <p id="visibility">-- km</p>
+        </div>
 
-    <!-- Forecast -->
+        <div class="card">
+            <h3>🌅 Sunrise</h3>
+            <p id="sunrise">--:--</p>
+        </div>
+
+        <div class="card">
+            <h3>🌇 Sunset</h3>
+            <p id="sunset">--:--</p>
+        </div>
+
+    </div>
 
     <div class="forecast">
 
-        <h3>5-Day Forecast</h3>
+        <h2>5-Day Forecast</h2>
 
-        <div id="forecastCards">
-
-            <!-- JavaScript -->
-
-        </div>
+        <div id="forecastCards"></div>
 
     </div>
 
@@ -119,5 +87,4 @@
 <script src="script.js"></script>
 
 </body>
-
-    </html>
+</html>
