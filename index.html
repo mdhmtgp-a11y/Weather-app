@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyCast Weather</title>
+    <title>SkyCast</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -14,18 +14,20 @@
 
 <div class="container">
 
+    <!-- Search Bar -->
     <div class="search-box">
-
         <input
             type="text"
             id="cityInput"
-            placeholder="🔍 Search city..."
+            placeholder="Search city..."
         >
 
-        <button id="searchBtn">🔍</button>
-
+        <button id="searchBtn">
+            🔍
+        </button>
     </div>
 
+    <!-- Weather -->
     <div class="weather-box">
 
         <h2 id="city">Kolkata</h2>
@@ -41,19 +43,13 @@
         <div class="details">
 
             <div class="card">
-
                 <h3>💧 Humidity</h3>
-
                 <p id="humidity">65%</p>
-
             </div>
 
             <div class="card">
-
-                <h3>💨 Wind</h3>
-
+                <h3>💨 Wind Speed</h3>
                 <p id="wind">12 km/h</p>
-
             </div>
 
         </div>
@@ -65,4 +61,4 @@
 <script src="script.js"></script>
 
 </body>
-        </html>
+    </html>
