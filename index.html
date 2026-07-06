@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,18 +16,29 @@
 <div class="container">
 
     <!-- Search -->
+
     <div class="search-box">
-        <input type="text" id="cityInput" placeholder="Search city...">
+
+        <input
+        type="text"
+        id="cityInput"
+        placeholder="Search city...">
+
         <button id="searchBtn">🔍</button>
+
     </div>
 
-    <!-- Current Location -->
-    <button id="locationBtn">📍 Use My Location</button>
+    <!-- Location -->
 
-    <!-- Weather Card -->
+    <button id="locationBtn">
+        📍 Use My Location
+    </button>
+
+    <!-- Weather -->
+
     <div class="weather-box">
 
-        <p id="dateTime">Monday, 6 July</p>
+        <p id="dateTime"></p>
 
         <h2 id="city">Kolkata</h2>
 
@@ -38,19 +50,65 @@
 
         <p id="condition">Sunny</p>
 
-        <div class="details">
+    </div>
 
-            <div class="card">
-                <div class="card-icon">💧</div>
-                <h3>Humidity</h3>
-                <p id="humidity">65%</p>
-            </div>
+    <!-- Main Cards -->
 
-            <div class="card">
-                <div class="card-icon">💨</div>
-                <h3>Wind Speed</h3>
-                <p id="wind">12 km/h</p>
-            </div>
+    <div class="details">
+
+        <div class="card">
+            <div class="card-icon">💧</div>
+            <h3>Humidity</h3>
+            <p id="humidity">65%</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">💨</div>
+            <h3>Wind Speed</h3>
+            <p id="wind">12 km/h</p>
+        </div>
+
+    </div>
+
+    <!-- Extra Details -->
+
+    <div class="extra-details">
+
+        <div class="extra-card">
+            <span>🌅</span>
+            <h4>Sunrise</h4>
+            <p id="sunrise">--:--</p>
+        </div>
+
+        <div class="extra-card">
+            <span>🌇</span>
+            <h4>Sunset</h4>
+            <p id="sunset">--:--</p>
+        </div>
+
+        <div class="extra-card">
+            <span>👁️</span>
+            <h4>Visibility</h4>
+            <p id="visibility">-- km</p>
+        </div>
+
+        <div class="extra-card">
+            <span>🌡️</span>
+            <h4>Pressure</h4>
+            <p id="pressure">-- hPa</p>
+        </div>
+
+    </div>
+
+    <!-- Forecast -->
+
+    <div class="forecast">
+
+        <h3>5-Day Forecast</h3>
+
+        <div id="forecastCards">
+
+            <!-- JavaScript -->
 
         </div>
 
@@ -61,4 +119,5 @@
 <script src="script.js"></script>
 
 </body>
-</html>
+
+    </html>
