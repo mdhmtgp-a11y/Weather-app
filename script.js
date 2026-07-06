@@ -199,3 +199,20 @@ cityInput.addEventListener("keydown",(e)=>{
 
 // Default city
 getForecast("Delhi");
+
+cityInput.addEventListener("input", () => {
+
+    fetchSuggestions(cityInput.value.trim());
+
+});
+
+document.addEventListener("click",(e)=>{
+
+    if(
+        !cityInput.contains(e.target) &&
+        !suggestions.contains(e.target)
+    ){
+        suggestions.style.display = "none";
+    }
+
+});
