@@ -164,6 +164,65 @@ async function getForecast(cityName) {
     }
 
 }
+// ===============================
+// City Suggestions
+// ===============================
+
+async function fetchSuggestions(query) {
+
+    if (query.length < 2) {
+        suggestions.style.display = "none";
+        suggestions.innerHTML = "";
+        return;
+    }
+
+    try {
+
+        const res = await fetch(
+            `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=6&appid=${API_KEY}`
+        );
+
+        const data = await res.json();
+
+        suggestions.innerHTML = "";
+
+        if (!data.length) {
+            suggestions.style.display = "none";
+            return;
+        }
+
+        data.forEach(place => {
+
+            const item = document.createElement("div");
+            item.className = "suggestion-item";
+
+            item.innerHTML = `
+                <strong>${place.name}</strong>
+                <span>${place.state ? ", " + place.state : ""}, ${place.country}</span>
+            `;
+
+            item.onclick = () => {
+
+                cityInput.value = place.name;
+                suggestions.style.display = "none";
+
+                getWeather(place.name);
+                getForecast(place.name);
+
+            };
+
+            suggestions.appendChild(item);
+
+        });
+
+        suggestions.style.display = "block";
+
+    } catch (err) {
+        console.log(err);
+        suggestions.style.display = "none";
+    }
+
+            }
 
 // Search button
 searchBtn.addEventListener("click", () => {
