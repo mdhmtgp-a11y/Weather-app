@@ -70,10 +70,6 @@ async function getWeather(cityName) {
     }
 }
 
-searchBtn.addEventListener(...)
-
-locationBtn.addEventListener(...)
-
 getWeather("Delhi");
 
 searchBtn.onclick = () => {
